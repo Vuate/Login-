@@ -3,15 +3,16 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
+import { User } from '@supabase/supabase-js'
 
 export default function DashboardPage() {
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<User | null>(null)
   const router = useRouter()
 
   useEffect(() => {
-    const session = supabase.auth.getSession().then(({ data }) => {
+    supabase.auth.getSession().then(({ data }) => {
       if (!data.session) {
-        router.push('/login')  
+        router.push('/login')
       } else {
         setUser(data.session.user)
       }
@@ -32,7 +33,7 @@ export default function DashboardPage() {
         onClick={handleLogout}
         className="bg-red-500 text-white px-4 py-2 rounded"
       >
-        Çikiş Yap
+        Çıkış Yap
       </button>
     </div>
   )
