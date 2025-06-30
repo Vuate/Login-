@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState} from 'react'
 import { supabase } from '@/lib/supabase'
 import Link from 'next/link'
 
@@ -19,7 +19,7 @@ export default function LoginPage() {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-200 via-pink-100 to-blue-200">
-      
+      {/* Arka planda süzülen daireler */}
       <div className="absolute w-[1000px] h-[1000px] bg-pink-300 opacity-20 rounded-full top-[-400px] left-[-400px] blur-3xl animate-pulse" />
       <div className="absolute w-[700px] h-[700px] bg-blue-300 opacity-20 rounded-full bottom-[-300px] right-[-300px] blur-3xl animate-pulse" />
 
